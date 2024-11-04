@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhotoCard from '../components/PhotoCard.astro';
+
+const photos = [
+	{
+		title: 'Mountain Sunrise',
+		image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4',
+		description: 'Breathtaking sunrise captured in the mountains'
+	},
+	{
+		title: 'Ocean Waves',
+		image: 'https://images.unsplash.com/photo-1439405326854-014607f694d7',
+		description: 'Powerful waves crashing against the shore'
+	},
+	{
+		title: 'Urban Night',
+		image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390',
+		description: 'City lights illuminating the night'
+	},
+	{
+		title: 'Forest Path',
+		image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
+		description: 'Mystical path through a dense forest'
+	},
+	{
+		title: 'Desert Dunes',
+		image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35',
+		description: 'Rolling sand dunes at sunset'
+	},
+	{
+		title: 'Wildlife',
+		image: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def',
+		description: 'A close encounter with nature'
+	}
+];
+---
+
+<Layout title="Photo Gallery">
+	<section class="gallery">
+		<h1>Photo Gallery</h1>
+		<div class="photo-grid">
+			{photos.map(photo => (
+				<PhotoCard {...photo} />
+			))}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.gallery h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.photo-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+</style>

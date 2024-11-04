@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MasonryImage from '../components/MasonryImage.astro';
+
+const photos = [
+	{
+		title: 'Mountain Sunrise',
+		image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4',
+		description: 'Breathtaking sunrise captured in the mountains'
+	},
+	{
+		title: 'Ocean Waves',
+		image: 'https://images.unsplash.com/photo-1439405326854-014607f694d7',
+		description: 'Powerful waves crashing against the shore'
+	},
+	{
+		title: 'Urban Night',
+		image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390',
+		description: 'City lights illuminating the night'
+	},
+	{
+		title: 'Forest Path',
+		image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
+		description: 'Mystical path through a dense forest'
+	},
+	{
+		title: 'Desert Dunes',
+		image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35',
+		description: 'Rolling sand dunes at sunset'
+	},
+	{
+		title: 'Northern Lights',
+		image: 'https://images.unsplash.com/photo-1483347756197-71ef80e95f73',
+		description: 'Aurora Borealis dancing in the night sky'
+	},
+	{
+		title: 'Autumn Colors',
+		image: 'https://images.unsplash.com/photo-1477414348463-c0eb7f1359b6',
+		description: 'Vibrant fall foliage in the countryside'
+	},
+	{
+		title: 'Coastal Sunset',
+		image: 'https://images.unsplash.com/photo-1414609245224-afa02bfb3fda',
+		description: 'Golden hour at the coastline'
+	},
+	{
+		title: 'Mountain Lake',
+		image: 'https://images.unsplash.com/photo-1439853949127-fa647821eba0',
+		description: 'Pristine alpine lake reflecting the mountains'
+	},
+	{
+		title: 'Desert Night',
+		image: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5',
+		description: 'Stars over the desert landscape'
+	},
+	{
+		title: 'Spring Bloom',
+		image: 'https://images.unsplash.com/photo-1462275646964-a0e3386b89fa',
+		description: 'Wildflowers in a mountain meadow'
+	},
+	{
+		title: 'Urban Architecture',
+		image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e',
+		description: 'Modern architectural details in the city'
+	},
+	{
+		title: 'Misty Forest',
+		image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d',
+		description: 'Morning fog in the ancient woodland'
+	},
+	{
+		title: 'Winter Wonderland',
+		image: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71',
+		description: 'Snow-covered landscape at dawn'
+	},
+	{
+		title: 'Tropical Paradise',
+		image: 'https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6',
+		description: 'Pristine beach with turquoise waters'
+	}
+];
+---
+
+<Layout title="Photography Portfolio">
+	<section class="hero">
+		<h1>Lens & Light</h1>
+		<p>Photography Portfolio</p>
+	</section>
+
+	<section class="masonry">
+		{photos.map(photo => (
+			<MasonryImage {...photo} />
+		))}
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 2rem 0 4rem;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		margin: 0;
+		color: var(--text-color);
+	}
+
+	.hero p {
+		font-size: 1.25rem;
+		color: #666;
+		margin: 0.5rem 0 0 0;
+	}
+
+	.masonry {
+		columns: 3 300px;
+		column-gap: 1.5rem;
+		padding: 0 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.masonry {
+			columns: 2 200px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.masonry {
+			columns: 1 auto;
+		}
+	}
+</style>

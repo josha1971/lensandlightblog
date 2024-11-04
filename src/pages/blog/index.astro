@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+const posts = [
+	{
+		title: 'The Art of Landscape Photography',
+		date: '2024-04-15',
+		slug: 'art-of-landscape-photography',
+		excerpt: 'Exploring the techniques and philosophy behind capturing stunning landscapes.',
+		image: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e'
+	},
+	{
+		title: 'Finding Beauty in Urban Photography',
+		date: '2024-04-10',
+		slug: 'urban-photography-guide',
+		excerpt: 'Tips and tricks for capturing the essence of city life through your lens.',
+		image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000'
+	}
+];
+---
+
+<Layout title="Photography Blog">
+	<section class="blog">
+		<h1>Photography Blog</h1>
+		<div class="blog-posts">
+			{posts.map(post => (
+				<BlogPost {...post} />
+			))}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.blog {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	.blog h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+</style>
